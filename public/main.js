@@ -39,7 +39,7 @@ function addMessageToUI(isOwnMessage, data){
     const element =` <li class="${isOwnMessage ? "message-right" : "message-left"}">
             <p class="message">
             ${data.message}
-                <span> ${data.message} ⚫ ${moment(data.dateTime).fromNow()}</span>
+            <span> ${data.name} ⚫ ${moment(data.dateTime).fromNow()}</span>
             </p>
         </li>
         `
