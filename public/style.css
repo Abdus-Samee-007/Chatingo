@@ -134,3 +134,13 @@ body {
     margin: 20px 0;
     color: #7e7e7e;
   }
+
+  .pointer {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    pointer-events: none; /* Prevent interaction */
+    z-index: 1000; /* Ensure it's above other elements */
+  }

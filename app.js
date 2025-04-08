@@ -15,11 +15,17 @@ function onConnected(socket) {
     console.log('Socket connected', socket.id)
     socketsConnected.add(socket.id)
     io.emit('clients-total', socketsConnected.size)
+
+    socket.on('mouseMove', (data) => {
+        socket.broadcast.emit('mouseMove', { id: socket.id, ...data })
+    })
   
     socket.on('disconnect', () => {
       console.log('Socket disconnected', socket.id)
       socketsConnected.delete(socket.id)
       io.emit('clients-total', socketsConnected.size)
+
+      socket.broadcast.emit('RemovePointer', socket.id)
     })
 
     socket.on('message',(data)=>{
